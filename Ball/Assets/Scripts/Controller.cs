@@ -1,3 +1,4 @@
+using System.Threading;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,9 +11,9 @@ public class Controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        rotation(rotacionPerDistance());
     }
-    
+
     // Update is called once per frame
     void Update()
     {
@@ -35,18 +36,20 @@ public class Controller : MonoBehaviour
         float b = gameObject.transform.localScale.x - a;
         if (xBall != centre)
         {
+
             if (xBall < centre)
             {
                 return (xBall * maxAngle) / a;
             }
             else
             {
+                print(xBall + "dife" + centre);
                 return (xBall * maxAngle) / b;
             }
-
         }
         else
         {
+            print(xBall + "iguales" + centre);
             return 0;
         }
     }
